@@ -1,0 +1,22 @@
+
+{% extends 'blog/base.html' %}
+
+{% block content %}
+
+	<h3 class="pb-3 mb-4 font-italic border-bottom">
+	  Alo mocidade leopodinense ...
+	</h3>
+	{% for post in posts %}
+	  <div class="blog-post">
+	  	<p>{{post.id}}</p>
+	    <a href="{% url 'post_detail' pk=post.pk %}"> 
+	      <h2 class="blog-post-title">{{post.title}}</h2>
+	    </a>
+	    {{post.author.username}}|{{post.created_date}}
+	    <p>
+	      {{post.text}}
+	    </p>
+	  </div><!-- /.blog-post -->
+	{% endfor %}
+
+{% endblock %}
